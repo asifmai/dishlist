@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <div class="body-content">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div class="logo-container">
+              <a href="/">
+              <img src="/images/logo.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
+            <form action="/search/name" method="GET">
+            <div class="search-box">                
+              <input type="text" name="searchterm" class="search-input" placeholder="What are you looking for?">
+              <i class="fas fa-search"></i>
+            </div>
+            <input type="submit" class="d-none">
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
+            <p class="lead lead-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, numquam!
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <% for (var i = 0; i < categories.length; i++) { %>
+          <div class="col-md-1 col-sm-2 col-3">
+            <a href="/list/<%= categories[i]._id %>/name" class="emoji-link">
+              <div class="emoji-container">
+                <div class="emoji">
+                  <% if (categories[i].emoji != '') { %>
+                    <%= categories[i].emoji %>
+                  <% } else { %>
+                    😋
+                  <% } %>
+                </div>
+                <div class="title">
+                  <%= categories[i].name %>
+                </div>
+              </div>
+            </a>
+          </div>
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include partials/commonscripts %>
+
+  <script>
+    $('.fas.fa-search').click(function (e) { 
+      e.preventDefault();
+      $('input[type="submit"]').trigger('click');
+    });
+  </script>
+</body>
+
+</html>

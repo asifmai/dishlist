@@ -1,0 +1,36 @@
+/* Login Form */
+.card-container {
+  max-width: 350px;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+.login-container {
+  height: 100vh;
+  text-align: center;
+  background: #c1c1c1;
+}
+
+.login-logo {
+  padding-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.login-logo img {
+  max-width: 170px;
+  width: 80%;
+}
+
+.profile-img-card {
+  border-radius: 50%;
+    width: 80px;
+    margin: auto;
+    border: 5px solid gainsboro;
+    height: 80px;
+}
+
+.btn-delete, .btn-edit {
+  background: none;
+  border: none;
+}

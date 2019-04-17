@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+
+<body>
+  <div class="body-container">
+    <div class="sidebar"></div>
+    <div class="content">
+      <div class="container">
+          <h1 class="login-logo text-center">
+              <a href="/admin">
+                <img src="/images/logosmall.png" alt="Bubba's Shrimp List">
+              </a>
+            </h1>
+        <h4 class="text-center">Edit Category</h4>
+        <hr>
+        <div class="row">
+          <div class="col-md-5 mx-auto">
+            <div class="card p-4 mt-4">
+              <form action="/admin/categories/edit" method="POST">
+                <% include ../partials/messages %>
+                <input type="text" value="<%= category._id %>" id="category" name="category" class="d-none">
+              <div class="form-group">
+                <label for="">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="eg. Shrimp dishes" required value="<%= category.name %>">
+              </div>
+              <div class="form-group">
+                <label for="">Emoji:</label>
+                <input type="text" name="emoji" id="emoji" class="form-control" placeholder="" value="<%= category.emoji %>">
+                <small id="helpId" class="text-muted"><a href="https://emojipedia.org/food-drink/" target="_blank">Copy and Paste from here</a></small>
+              </div>
+              <input type="submit" class="btn btn-primary btn-block">
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col text-center mt-2">
+              <a href="/admin" class="btn btn-success"><i class="fas fa-chevron-left    "></i> Back</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <% include ../partials/commonscripts %>
+</body>
+
+</html>

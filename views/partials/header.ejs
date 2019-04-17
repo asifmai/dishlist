@@ -1,0 +1,62 @@
+<div class="container header-container">
+  <div class="menu-button btn-open" onclick="" title="Menu">
+    <i class="material-icons">
+      menu
+    </i>
+  </div>
+
+  <% if (typeof page != "undefined") { %>
+    <% if (page == "listpage") { %>
+      <div class="header-logo text-center">
+        <a href="/">
+          <img src="/images/logosmall.png" alt="">
+        </a>
+      </div>
+  <% } %>
+  <% } %>
+  <div></div>
+<!-- 
+  <div class="social-icons">
+    <a href="" class="social-link">
+      <i class="fab fa-facebook-f    "></i>
+    </a>
+    <a href="" class="social-link">
+      <i class="fab fa-twitter    "></i>
+    </a>
+    <a href="" class="social-link">
+      <i class="fab fa-instagram    "></i>
+    </a>
+  </div> -->
+</div>
+
+<div class="header-menu">
+  <div class="container">
+    <div class="row close-button">
+      <div class="col">
+        <div class="menu-button btn-close mx-auto" onclick="" title="Close">
+          <i class="material-icons">
+            close
+          </i>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <% for (var i = 0; i < categories.length; i++) { %>
+      <div class="col-md-4">
+          <a href="/list/<%= categories[i]._id %>" class="header-menu-li">
+            <span class="emoji">
+              <% if (categories[i].emoji != '') { %>
+                <%= categories[i].emoji %>
+              <% } else { %>
+                😋
+              <% } %>
+            </span>
+            <span class="title">List of <%= categories[i].name %></span>
+        </a>
+      </div>
+      <% } %>
+
+    </div>
+  </div>
+</div>

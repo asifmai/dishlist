@@ -1,0 +1,101 @@
+
+
+.search-box {
+  position: relative;
+  display: inline;
+}
+
+.search-box .search-input {
+  width: 100%;
+  max-width: 400px;
+  background: transparent;
+  border: 2px solid var(--black-color);
+  border-radius: 25px;
+  /* color: white; */
+  padding: 0.5em 2em 0.5em 1em;
+  font-size: 1em;
+  margin-bottom: 1em;
+  height: 2.7em;
+}
+
+.search-box i {
+  position: absolute;
+  right: 0.8em;
+  font-size: 1.2em;
+  top: 0em;
+  cursor: pointer;
+  transition: 100ms all ease-in-out;
+  color: var(--black-color);
+}
+
+.search-box .search-input:focus, .search-box i:focus {
+  outline: none;
+}
+
+.search-box .search-input:focus {
+  border-color: var(--green-color);
+}
+
+.search-box i:hover {
+  color: var(--green-color)
+}
+
+.lead-text {
+  margin-bottom: 3em;
+}
+
+.emoji-link {
+  color: var(--black-color);
+}
+
+.emoji-link:hover {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.emoji-link:hover .emoji {
+  transform: rotate(15deg);
+  /* background: var(--lightgreen-color); */
+}
+
+.emoji-link:hover .title {
+  /* margin-top: 0.8em; */
+  color: var(--green-color)
+}
+
+.emoji-container {
+  margin-bottom: 2em;
+}
+
+.emoji-container .emoji {
+  /* border: 5px solid var(--white-color); */
+  /* border-radius: 50%; */
+  text-align: center;
+  font-size: 2em;
+  /* width: 100px; */
+  /* height: 100px; */
+  line-height: 1.8;
+  /* background: var(--green-color); */
+  /* cursor: pointer; */
+  margin: auto;
+  transition: 200ms all ease-in-out;
+  /* box-shadow: 0px 0px 8px 6px var(--lightgreen-color); */
+}
+
+.emoji-container .title {
+  text-align: center;
+  /* margin-top: 1em; */
+  transition: 200ms all ease-in-out;
+  font-size: 0.8em;
+  font-weight: 700;
+} 
+
+@media screen and (max-width: 768px) {
+  .lead-text {
+    font-size: 1em;
+  }
+
+  .search-box .search-input {
+    height: 2.5em;
+  }
+}

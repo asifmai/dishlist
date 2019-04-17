@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+
+<body>
+  <div class="body-container">
+    <div class="sidebar"></div>
+    <div class="content">
+      <div class="container">
+        <h1 class="login-logo text-center">
+          <img src="/images/logosmall.png" alt="Bubba's Shrimp List">
+        </h1>
+        <h4 class="text-center mb-4">Admin Dashboard</h4>
+        <hr>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Database</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3 mb-2">
+                <a href="/admin/categories" class="btn btn-primary btn-block admin-button">View Categories</a>
+              </div>
+              <div class="col-md-3 mb-2">
+                <a href="/admin/categories/add" class="btn btn-info btn-block admin-button">
+                  <i class="fas fa-plus    "></i>
+                  Add Category</a>
+              </div>
+              <div class="col-md-3 mb-2">
+                <a href="/admin/items/add" class="btn btn-success btn-block admin-button">
+                  <i class="fas fa-plus    "></i>
+                  Add Item</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-2 offset-md-3">
+                <a href="/admin/categories/addbulk" class="btn btn-info btn-block admin-button">
+                  <i class="fas fa-plus    "></i>
+                  Add Categories <br>
+                  <small>Using Excel file</small>
+                </a>
+              </div>
+              <div class="col-md-3 mb-2">
+                <a href="/admin/items/addbulk" class="btn btn-success btn-block admin-button">
+                  <i class="fas fa-plus    "></i>
+                  Add Items <br>
+                  <small>Using Excel file</small>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include ../partials/commonscripts %>
+</body>
+
+</html>

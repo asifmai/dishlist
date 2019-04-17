@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+<body>
+  <div class="body-container login-container">
+    <div class="login-logo">
+      <img src="/images/logo.png" alt="">
+    </div>
+    <div class="card card-container p-4">
+      <h4 class="text-dark mb-2">Admin Login</h4>
+      <% include ../partials/messages %>
+      <img id="profile-img" class="profile-img-card mb-2" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+      <form class="form-signin" method="POST" action="/admin/login">
+        <div class="form-group">
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email Address"
+            aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+            aria-describedby="helpId">
+        </div>
+        <button class="btn btn-primary btn-block btn-signin" type="submit">Sign in</button>
+      </form><!-- /form -->
+    </div><!-- /card-container -->
+  </div>
+  <% include ../partials/commonscripts %>
+</body>
+
+</html>

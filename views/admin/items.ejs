@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+
+<body>
+  <div class="body-container">
+    <div class="sidebar"></div>
+    <div class="content">
+      <div class="container">
+        <h1 class="login-logo text-center">
+          <a href="/admin">
+            <img src="/images/logosmall.png" alt="Bubba's Shrimp List">
+          </a>
+        </h1>
+        <h4 class="text-center mb-4">Food Items in <%= category.name %></h4>
+        <% include ../partials/messages %>
+        <table class="table table-striped mt-4">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th>S.No</th>
+              <th>Image</th>
+              <th>Item Name</th>
+              <th>Description</th>
+              <th>Origin(s)</th>
+              <th>Search Tags</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i = 0; i < items.length; i++ ){ %>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td>
+                  <% if (items[i].image != '') {%>
+                  <img src="/images/dishes/<%= items[i].image %>" alt="<%= items[i].name %>" style="width: 50px; height:50px;">
+                  <% } else { %>
+                    <i class="fas fa-image    " style="font-size: 2em;"></i>
+                  <% } %>
+                </td>
+                <td><%= items[i].name %></td>
+                <td><%= items[i].description %></td>
+                <td>
+                  <%= items[i].origins %>
+                </td>
+                <td>
+                  <% if (items[i].searchtags.length > 0) { %>
+                    <% for (var a = 0; a < items[i].searchtags.length; a++) { %>
+                      <%= items[i].searchtags[a] %>
+                      <% if (a != items[i].searchtags.length - 1) { %>
+                        ,                     
+                      <% } %>                     
+                    <% } %>
+                  <% } %>
+                </td>
+                <td>
+                  <form action="/admin/items/edit/<%= items[i]._id %>" method="GET">
+                    <button type="submit" class="text-info btn-edit"><i class="fas fa-edit    "></i></button>
+                  </form>
+                </td>
+                <td>
+                  <form action="/admin/items/delete/<%= items[i]._id %>" method="POST">
+                    <button type="submit" class="text-danger btn-delete"><i class="fas fa-trash    "></i></button>
+                  </form>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <div class="col text-center">
+            <a href="/admin/categories" class="btn btn-success"><i class="fas fa-chevron-left    "></i> Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/commonscripts %>
+  <script>
+    $('.btn-delete').on('click', function (e) {
+      e.preventDefault();
+      var form = $(this).parents('form');
+      swal.fire({
+        title: "Are you sure?",
+        text: "You will not be able to recover this Item!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+      }).then(function (result) {
+        if (result.value) form.submit();
+      })
+    });
+  </script>
+</body>
+
+</html>

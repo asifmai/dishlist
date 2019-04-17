@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+
+<body>
+  <div class="body-container">
+    <div class="sidebar"></div>
+    <div class="content">
+      <div class="container">
+        <h1 class="login-logo text-center">
+          <a href="/admin">
+            <img src="/images/logosmall.png" alt="Bubba's Shrimp List">
+          </a>
+        </h1>
+        <h4 class="text-center">Add Food Categories using Excel file</h4>
+        <hr>
+        <div class="row">
+          <div class="col-md-5 mx-auto">
+            <div class="card p-4 mt-4">
+              <form action="/admin/categories/addbulk" method="POST" encType="multipart/form-data">
+                <% include ../partials/messages %>
+                <div class="form-group">
+                  <label for="">Excel File:</label>
+                  <input type="file" class="form-control" name="excelfile" id="excelfile" aria-describedby="helpId"
+                    placeholder="" accept=".xlsx, .xls">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center mt-2">
+            <a href="/admin" class="btn btn-success"><i class="fas fa-chevron-left    "></i> Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include ../partials/commonscripts %>
+</body>
+
+</html>

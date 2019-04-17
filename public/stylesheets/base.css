@@ -1,0 +1,79 @@
+/* Font Import */
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700'); */
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,600,700'); */
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,500,600,700,800'); */
+/* @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800'); */
+/* @import url('https://fonts.googleapis.com/css?family=Germania+One'); */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+
+/* Variables */
+:root {
+  --green-color : #035F3C;
+  --lightgreen-color: #109c67;
+  --yellow-color : #F8D71C;
+  --red-color: #FC3F1D;
+  --white-color: white;
+  --black-color: #212121;
+}
+
+/* Overall  */
+html{
+  scroll-behavior: smooth;
+}
+
+html {
+  min-height: 100vh;
+  position: relative;
+}
+
+body {
+  font-family: 'Montserrat';
+  color: var(--black-color);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.body-content {
+  padding-top: 5em;
+}
+
+.alert {
+  padding: 0 2em 0 0.2em;
+    font-size: 0.8em;
+    text-align: left;
+    font-weight: 500;
+}
+
+.alert .close {
+  padding: 0 0.2em 0 0;
+  font-size: 1.5em;
+}
+
+.logo-container img {
+  max-width: 150px;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.body-content.list-page {
+  padding-top: 2em;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-container img {
+    max-width: 100px;
+    width: 80%;
+    margin-bottom: 1em;
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/commonhead %>
+  <link rel="stylesheet" href="/stylesheets/dropdown.css">
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+  <link rel="stylesheet" href="/stylesheets/tagify.css">
+</head>
+
+
+<body>
+  <div class="body-container">
+    <div class="sidebar"></div>
+    <div class="content">
+      <div class="container">
+        <h1 class="login-logo text-center">
+          <a href="/admin">
+            <img src="/images/logosmall.png" alt="Bubba's Shrimp List">
+          </a>
+        </h1>
+        <h4 class="text-center admin-page-heading">Edit Food Item</h4>
+        <hr>
+        <div class="row">
+          <div class="col-md-5 mx-auto">
+            <div class="card p-4 mt-4">
+              <form action="/admin/items/edit" method="POST" encType="multipart/form-data" novalidate>
+                <% include ../partials/messages %>
+                <input type="text" value="<%= item._id %>" class="d-none" name="itemid">
+                <div class="form-group">
+                  <label for="">Name: <span class="text-danger">*</span></label>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="eg. Awadhi prawns" required
+                    value="<%= item.name %>">
+                </div>
+                <div class="form-group">
+                  <label for="">Category: <span class="text-danger">*</span></label>
+                  <select name="category" id="category" class="form-control" required>
+                    <% for (var a = 0; a < categories.length; a++) { %>
+                    <option value="<%= categories[a]._id %>"><%= categories[a].name %></option>
+                    <% } %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Origin(s):</label>
+                  <input id="origins" style="width:100%;" type="text" name="origins"/>
+                  <div style="clear:both;"></div>
+                </div>
+                <div class="form-group">
+                  <label for="">Description:</label>
+                  <textarea class="form-control" name="description" id="description"
+                    rows="3"><%= item.description %></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="">Image:</label>
+                  <img src="<%= item.image %>" alt="" class="img-thumbnail" id="imgpreview">
+                  <input type="file" class="form-control" name="image" id="image" aria-describedby="helpId"
+                    placeholder="" accept=".jpeg, .jpg, .png">
+                  <label for="">OR</label>
+                  <label for="" class="mt-3">Image URL:</label>
+                  <input type="text" class="form-control" name="imageurl" id="imageurl" aria-describedby="helpId"
+                    placeholder="">
+                  <small id="helpId" class="text-muted">Image must be in JPG or format</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Search Tags:</label>
+                  <input type="text" name="searchtags" id="searchtags" class="form-control"
+                    value="<%= item.searchtags %>">
+                  <small id="helpId" class="text-muted">Type keywords that will be matched when user searches on the
+                    landing page</small>
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center mt-2">
+            <a href="/admin" class="btn btn-success"><i class="fas fa-chevron-left    "></i> Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include ../partials/commonscripts %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="/javascripts/dropdown.js"></script>
+    <script src="/javascripts/tagify.js"></script>
+    <script>
+      let selectedOrigins = eval(<%- JSON.stringify(item.origins) %>)
+      let selectedCategory = eval(<%- JSON.stringify(item.category) %>)
+    </script>
+    <script src="/javascripts/edititem.js"></script>
+</body>
+
+</html>
